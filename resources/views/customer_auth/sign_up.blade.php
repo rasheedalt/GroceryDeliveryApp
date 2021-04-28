@@ -4,7 +4,7 @@
     <form class="form-signin">
 
       <div class="text-center mb-4">
-        <i class="fa fa-handshake-o fa-2x" aria-hidden="true"><strong>Grocery Delivery</strong> </i><br>
+        <a href="/" class="text-dark"><i class="fa fa-handshake-o fa-2x" aria-hidden="true"><strong>Grocery Delivery</strong> </i></a><br>
         <!-- <h1 class="h3 mb-3 font-weight-normal">Login</h1> -->
         <!-- <p>Login</p> -->
       </div>

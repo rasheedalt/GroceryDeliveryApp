@@ -46,7 +46,7 @@
                   <strong>&nbsp; &nbsp; Logout</strong>
                 </a>
               @else
-                <a class="nav-item nav-link" href="{{ route('customer.login') }}">
+                <a class="nav-item nav-link" href="{{ route('customer.show_login') }}">
                   <i class="fa fa-sign-in" aria-hidden="true"></i>
                   <strong>&nbsp; &nbsp; Login</strong>
                 </a>
