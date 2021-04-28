@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
+Route::get('/login', 'CustomerController@showLoginform')->name('customer.show_login');
+Route::get('/sign-up', 'CustomerController@showSignUpform')->name('customer.show_signup');

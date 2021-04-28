@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
-    <title>Album example for Bootstrap</title>
+    <title>Grocery Delivery</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/album/">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -40,10 +40,17 @@
                 <strong>&nbsp; &nbsp; Cart</strong>
               </a>
 
-              <a class="nav-item nav-link" href="#">
-                <i class="fa fa-power-off" aria-hidden="true"></i>
-                <strong>&nbsp; &nbsp; Logout</strong>
-              </a>
+              @if(auth('customer')->user())
+                <a class="nav-item nav-link" href="#">
+                  <i class="fa fa-power-off" aria-hidden="true"></i>
+                  <strong>&nbsp; &nbsp; Logout</strong>
+                </a>
+              @else
+                <a class="nav-item nav-link" href="{{ route('customer.login') }}">
+                  <i class="fa fa-sign-in" aria-hidden="true"></i>
+                  <strong>&nbsp; &nbsp; Login</strong>
+                </a>
+              @endif
             </div>
           </div>
       </div>
@@ -67,15 +74,17 @@
         <div class="container">
 
           <div class="row">
+            @foreach($products as $product)
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="https://images.pexels.com/photos/1313267/pexels-photo-1313267.jpeg" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+                <img class="card-img-top" src="{{ $product->image }}" height="338px" alt="Card image cap">
                 <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <h4 class="text-center">{{ $product->display_name }}</h4>
+                  <p class="card-text text-center">$ {{ number_format($product->price, 2) }}</p>
                   <div class="d-flex justify-content-center align-items-center">
                     <div class="text-center">
                       <button type="button" class="btn btn-block">Add to Cart</button><br>
-                      <input type="number" value="1" min="1" class="form-control">
+                      <input type="number" value="1" min="1" class="form-control text-center">
                       <label>Quantity</label>
                     </div>
                     <!-- <small class="text-muted">9 mins</small> -->
@@ -83,6 +92,7 @@
                 </div>
               </div>
             </div>
+            @endforeach
 
           </div>
         </div>
