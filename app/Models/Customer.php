@@ -10,7 +10,7 @@ class Customer extends Authenticatable
 {
   use Notifiable;
 
-  **
+  /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -24,7 +24,7 @@ class Customer extends Authenticatable
         'phone_no'
     ];
 
-    **
+    /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
@@ -32,5 +32,9 @@ class Customer extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function cart(){
+        return $this->hasMany(Cart::class);
+    }
 
 }
